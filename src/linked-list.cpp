@@ -1,6 +1,20 @@
 #include<iostream>
 using namespace std;
 const int LEN = 100;
+class Node{
+    protected:
+        int data;
+        Node *next;
+    public:
+        Node(int data){
+            this->data = data;
+        }
+        Node(int data, Node *next){
+            this->data = data;
+            this->next = next;
+        }
+        
+}
 class Stack{
     protected:
         int arr[LEN];

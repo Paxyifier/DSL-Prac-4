@@ -6,12 +6,6 @@ class Stack{
         int arr[LEN];
         int top = -1;
     public:
-        // Stack(){
-
-        // }
-        int getTop() { 
-            return this->arr[this->top];
-        }
         int push(int x) {
             this->top++;
             this->arr[top] = x;
@@ -22,6 +16,11 @@ class Stack{
                 return -1;
             this->top--;
             return this->arr[top];
+        }
+        void display() {
+            for (int i = top; i>=0;i--)
+                cout << arr[i] << ", ";
+            cout << "end\n";
         }
 };
 
@@ -50,16 +49,13 @@ int main() {
                 }
                 break;
             case 3:
-                op = s.getTop();
-                if (op == -1) {
-                    cout << "Stack is empty "<<endl;
-                }
-                else {
-                    cout << "Top element: "<<op<<endl;
-                }
+                s.display();
+                break;
+            case 4:
+                run = false;
                 break;
             default:
-                run = false;
+                cout << "Invalid input" << endl;
                 break;
         }
     }

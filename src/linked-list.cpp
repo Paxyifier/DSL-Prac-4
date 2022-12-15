@@ -2,10 +2,9 @@
 using namespace std;
 const int LEN = 100;
 class Node{
-    protected:
+    public:
         int data;
         Node *next;
-    public:
         Node(int data){
             this->data = data;
         }
@@ -14,28 +13,31 @@ class Node{
             this->next = next;
         }
         
-}
+};
 class Stack{
     protected:
-        int arr[LEN];
-        int top = -1;
+        Node* top=NULL;
     public:
-        // Stack(){
-
-        // }
-        int getTop() { 
-            return this->arr[this->top];
-        }
-        int push(int x) {
-            this->top++;
-            this->arr[top] = x;
-            return this->top;
+        void push(int x) {
+            Node* n = new Node(x,this->top);
+            this->top = n;
         }
         int pop() {
-            if(this->top == -1)
+            if(this->top == NULL){
                 return -1;
-            this->top--;
-            return this->arr[top];
+            }
+            Node* n = this->top;
+            this->top = n->next;
+            return n->data;
+        }
+        void display(){
+            Node* n = this->top;
+            cout << " Stack from top to bottom";
+            while(n!= NULL){
+                cout<<n->data<<" ";
+                n = n->next;
+            }
+            cout<<"\n";
         }
 };
 
@@ -45,7 +47,7 @@ int main() {
     bool run = true;
     Stack s =  Stack();
     while (run) {
-        cout << "1. Push element\n2. Pop element\n3. Check top"<< endl;
+        cout << "1. Push element\n2. Pop element\n3. Display\n4.Exit"<< endl;
         cin>>ip;
 
         switch (ip) {
@@ -64,16 +66,13 @@ int main() {
                 }
                 break;
             case 3:
-                op = s.getTop();
-                if (op == -1) {
-                    cout << "Stack is empty "<<endl;
-                }
-                else {
-                    cout << "Top element: "<<op<<endl;
-                }
+                s.display();
+                break;
+            case 4:
+                run = false;
                 break;
             default:
-                run = false;
+                cout << "Invalid input" << endl;
                 break;
         }
     }

@@ -30,7 +30,7 @@ int main() {
     bool run = true;
     Stack s =  Stack();
     while (run) {
-        cout << "1. Push element\n2. Pop element\n3. Check top"<< endl;
+        cout << "1. Push element\n2. Pop element\n3. Display\n4.Exit"<< endl;
         cin>>ip;
 
         switch (ip) {

@@ -32,7 +32,7 @@ class Stack{
         }
         void display(){
             Node* n = this->top;
-            cout << " Stack from top to bottom";
+            cout << " Stack from top to bottom -> ";
             while(n!= NULL){
                 cout<<n->data<<" ";
                 n = n->next;
@@ -47,7 +47,7 @@ int main() {
     bool run = true;
     Stack s =  Stack();
     while (run) {
-        cout << "1. Push element\n2. Pop element\n3. Display\n4.Exit"<< endl;
+        cout << "1. Push element\n2. Pop element\n3. Display\n4.Exit\nEnter Your Choice: ";
         cin>>ip;
 
         switch (ip) {
